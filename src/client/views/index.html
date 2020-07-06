@@ -2,42 +2,68 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
+        <title>Natural Language Processing Project</title>
+
     </head>
 
     <body>
+      <header>
+          <div class="">
+              Evaluate a News Article with Aylien NLP
+          </div>
+      </header>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
+      <main>
+          <h1> About the project </h1>
+          <p> This project involved using node package manager, webkit, Aylien, and a number of other node modules to build a site to evaluate news articles with a natural language processer.
+          </p>
+          <h2>
+            Type in a URL to see what the Ayliens think about it!
+          </h2>
+          <section class="errors">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div id="error"></div>
+          </section>
+          <section>
+              <form class="" onsubmit="return Client.handleSubmit(event)">
+                  <input id="name" type="text" name="input-url" value="" onblur="onBlur()" placeholder="https://www.source/article...">
+                  <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+              </form>
+          <section>
 
-        <main>
-            <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                </form>
-            <section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
-        </main>
-
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-
+          <section class='results'>
+              <strong>Results</strong>
+              <ul>
+                <li>
+                  <h3>Polarity:</h3>
+                  <p id='polarity'></p>
+                  <h4>Confidence:</h4>
+                  <p id='pol-confidence'></p>
+                </li>
+                <li>
+                  <h3>Subjectivity:</h3>
+                  <p id='subjectivity'></p>
+                  <h4>Confidence:</h4>
+                  <p id='sub-confidence'></p>
+                </li>
+                <h3>Excerpt:</h3>
+                <p id='excerpt'></p>
+              </ul>
+          </section>
+      </main>
+      <footer>
+          <p>Know your bias!</p>
+      </footer>
+      <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js').then(registration =>{
+              console.log('SW registered successfuly: ', registration);
+            });
+        });
+        }else{
+        console.log("Service Working not supported");
+            }
+      </script>
     </body>
 </html>
