@@ -5,6 +5,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var aylien = require("aylien_textapi");
 var cors = require("cors");
+const mockAPIResponse = require('./mockAPI.js')
 
 var port = 8080;
 
@@ -25,12 +26,14 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}!`)
 });
 
-console.log(`__dirname: ${__dirname}`)
 //GET REQUESTS
 app.get('/', function (req, res) {
   res.sendFile(path.resolve('./dist/index.html'))
 });
 
+app.get('/test', function (req, res) {
+    res.send(mockAPIResponse)
+});
 //POST REQUESTS
 app.post('/article', function (req, res) {
   console.log('POST request received');

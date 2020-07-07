@@ -14,32 +14,32 @@ function handleSubmit(event) {
     }
 }
 
-const _postData = async (url, input) => {
+const postData = async (url, input) => {
 
-    const res = await fetch(url, {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: "same-origin",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({text: input})
-    });
-    try {
-      const data = await res.json()
-      if(res.status === 200) {
-      document.querySelector('section.results #polarity').innerHTML = data.polarity;
-      document.querySelector('section.results #subjectivity').innerHTML = data.subjectivity;
-      document.querySelector('section.results #pol-confidence').innerHTML = data.polarity_confidence;
-      document.querySelector('section.results #sub-confidence').innerHTML = data.subjectivity_confidence;
-      document.querySelector('section.results #excerpt').innerHTML = data.text;
+  const res = await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: "same-origin",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({text: input})
+  });
+  try {
+    const data = await res.json()
+    if(res.status === 200) {
+    document.querySelector('section.results #polarity').innerHTML = data.polarity;
+    document.querySelector('section.results #subjectivity').innerHTML = data.subjectivity;
+    document.querySelector('section.results #pol-confidence').innerHTML = data.polarity_confidence;
+    document.querySelector('section.results #sub-confidence').innerHTML = data.subjectivity_confidence;
+    document.querySelector('section.results #excerpt').innerHTML = data.text;
 
-      }
-    } catch(error) {
-      document.getElementById('error').style.display ='block';
-      document.getElementById('error').innerHTML = "Something went wrong, please try again.";
-      }
     }
+  } catch(error) {
+    document.getElementById('error').style.display ='block';
+    document.getElementById('error').innerHTML = "Something went wrong, please try again.";
+    }
+}
 
-export { handleSubmit, _postData }
+export { handleSubmit, postData }
