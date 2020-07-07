@@ -14,39 +14,39 @@
       </header>
 
       <main>
-          <h1> About the project </h1>
-          <p> This project involved using node package manager, webkit, Aylien, and a number of other node modules to build a site to evaluate news articles with a natural language processer.
-          </p>
-          <h2>
-            Type in a URL to see what the Ayliens think about it!
-          </h2>
-          <section class="errors">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <div id="error"></div>
+          <section>
+            <h1> About the project: </h1>
+            <p class="info"> This project involved using node package manager, webkit, Aylien, and a number of other node modules to build a site to evaluate news articles with a natural language processer.
+            </p>
+            <h2>
+              Type in a URL to see what the Ayliens think about it!
+            </h2>
           </section>
           <section>
               <form class="" onsubmit="return Client.handleSubmit(event)">
                   <input id="url" type="text" name="input-url" value="" placeholder="https://www.source/article...">
                   <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
               </form>
-          <section>
-
+              <div id="error"></div>
+          </section>
           <section class='results'>
               <strong>Results</strong>
               <ul>
-                <li>
-                  <h3>Polarity:</h3>
-                  <p id='polarity'></p>
-                  <h4>Confidence:</h4>
-                  <p id='pol-confidence'></p>
+                <li class='sub-result'>
+                  <h3>Polarity: </h3>
+                  <span id='polarity'></span>
+                  <br>
+                  <h4>Confidence: </h4>
+                  <span id='pol-confidence'></span>
                 </li>
-                <li>
-                  <h3>Subjectivity:</h3>
-                  <p id='subjectivity'></p>
-                  <h4>Confidence:</h4>
-                  <p id='sub-confidence'></p>
-                </li>
-                <h3>Excerpt:</h3>
+                <li class='sub-result'>
+                  <h3>Subjectivity: </h3>
+                  <span id='subjectivity'></span>
+                  <br>
+                  <h4>Confidence :</h4>
+                  <span id='sub-confidence'></span>
+                <li class='sub-result'>
+                <h3>Excerpt: </h3>
                 <p id='excerpt'></p>
               </ul>
           </section>

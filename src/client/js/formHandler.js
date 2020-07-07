@@ -6,12 +6,11 @@ function handleSubmit(event) {
   if(Client.validURL(JSON.parse(JSON.stringify(inputURL)))) {
     console.log("Valid URL")
     console.log("Fetching Analysis")
+    document.getElementById('error').style.display ='none';
     _postData('http://localhost:8080/article', inputURL)
     }else{
-      var errorSection = document.querySelector('section.errors');
-      var error = document.querySelector('section.errors #error');
-      error.innerHTML = "Please enter a valid URL.";
-      errorSection.style.display ='block';
+      document.getElementById('error').style.display ='block';
+      document.getElementById('error').innerHTML = "Please enter a valid URL.";
     }
 }
 
@@ -35,12 +34,11 @@ const _postData = async (url, input) => {
       document.querySelector('section.results #pol-confidence').innerHTML = data.polarity_confidence;
       document.querySelector('section.results #sub-confidence').innerHTML = data.subjectivity_confidence;
       document.querySelector('section.results #excerpt').innerHTML = data.text;
+
       }
     } catch(error) {
-      var errorSection = document.querySelector('section.errors');
-      var error = document.querySelector('section.errors #error');
-      error.innerHTML = "Something went wrong, please try again.";
-      errorSection.style.display ='block';
+      document.getElementById('error').style.display ='block';
+      document.getElementById('error').innerHTML = "Something went wrong, please try again.";
       }
     }
 
