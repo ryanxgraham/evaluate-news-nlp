@@ -1,13 +1,13 @@
 # Evaluate a news article with Natural Language Processing
 
-##Description
+## Description
 
 The goal of this project was to develop a web app that lets a user run Natural Language Processing on articles on other websites.  In order to do this, we use the Aylien NPL API.  I built a simple interface to make calls to the api, and it returns information about the article regarding the content's polarity (positive, neutral, negative), its subjectivity (fact or opinion), and how confident it is about those judgments.  
 
-##Requirements
+## Requirements
 this project require Node Package Manager.
 
-##Installation
+## Installation
 
 Clone this repo with
 ```
@@ -31,9 +31,9 @@ add the following lines to the ```.env``` file:
 API_ID=YOURAPPID
 API_KEY=YOURAPIKEY
 ```
-##Running the app
+## Running the app
 
-###In Dev Mode
+### In Dev Mode
 
 To run the dev server:
 ```
@@ -44,7 +44,7 @@ To run tests:
 npm run test
 ```
 
-###In Production Mode
+### In Production Mode
 ```
 npm run build-prod
 ```
