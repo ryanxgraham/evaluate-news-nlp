@@ -51,6 +51,10 @@ npm run build-prod
 ```
 npm run start
 ```
+Open your preferred web browser and navigate to:
+```
+http://localhost:8080/
+```
 ## Contributions
 
 Starter code provided by Udacity, Functionality implemented by
