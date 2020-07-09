@@ -7,7 +7,7 @@ function handleSubmit(event) {
     console.log("Valid URL")
     console.log("Fetching Analysis")
     document.getElementById('error').style.display ='none';
-    _postData('http://localhost:8080/article', inputURL)
+    postData('http://localhost:8080/article', inputURL)
     }else{
       document.getElementById('error').style.display ='block';
       document.getElementById('error').innerHTML = "Please enter a valid URL.";
